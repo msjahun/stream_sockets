@@ -13,7 +13,7 @@
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <ctype.h>
-#define PORT  7000 /* Port of this server */
+#define PORT  4000 /* Port of this server */
 #define SIZE sizeof(struct sockaddr_in)
 
 

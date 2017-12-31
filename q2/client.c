@@ -15,19 +15,23 @@
 #define PORT  7000 /* Port of the server */
 #define SIZE sizeof(struct sockaddr_in)
 
-int main(void){
+int howManyChars(char buff[]);
 
+int main(int argc, char *argv[]){
+
+if(argc !=2){
+printf("usage: #client \"sample text\" ");}
 	char buf[1024];
-	int n, s, ns, len;
-
+	int n, s, ns, len,stringLength;
+stringLength=howManyChars(argv[1]);
+printf("%d This is the string:%s",stringLength,argv[1]);
 /* For client's address, OS will assign IP of this host  */
 /* and arbitrary port number: */
-
 	struct sockaddr_in cli = {AF_INET, INADDR_ANY, INADDR_ANY};
 
 /* For server's address */
 
-	struct sockaddr_in srv = {AF_INET, PORT, inet_addr("192.168.181.137")}; 
+	struct sockaddr_in srv = {AF_INET, PORT, inet_addr("127.0.0.1")}; 
 
 /* Or in the following way (IP addr could be assigned later): */
 /* struct sockaddr_in srv = {AF_INET, PORT}; */
@@ -64,14 +68,14 @@ int main(void){
 		}
 
 /** Send a message to the server via socket s*/
-	n = send(s, "THiS Is A rEQuEst fRoM cLiENT\n", 30, 0);
+	n = send(s, argv[1], stringLength, 0);
 
 	if (n < 0) {
 		perror("send problem");
 		 exit(1);
 	}
 
-	printf ("TCP CLIENT: a request is sent ...\n");
+	printf ("\nTCP CLIENT: a request is sent ...\n");
 //printf ("");
 
 /* Receiving and printing a reply from server */
@@ -81,6 +85,20 @@ int main(void){
 
 /** Close the socket and terminate.*/
 	close(s);
-	printf ("TCP CLIENT terminated...\n");
+	printf ("\nTCP CLIENT terminated...\n");
 	exit(0);
+}
+
+
+int howManyChars(char buff[]){
+int counter=0;
+int i=0;
+char *b;
+b=buff;
+while(*b!= '\0'){
+counter++;
+b++;
+}
+
+return counter;
 }

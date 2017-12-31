@@ -26,7 +26,7 @@ int main(void){
 	int cli_len = SIZE;
 	
 
-	printf("TCP SERVER: starting ...\n");
+	printf("\nTCP SERVER: starting ...\n");
 
 /** Create the Internet socket, of SOCK_STREAMtype.*/
 
@@ -90,7 +90,7 @@ int main(void){
 	send (ns, buf,n,0);
 	//send (ns, "ThiS IS a RePLy fRoM sERvEr\n",28,0);
 
-	printf ("TCP SERVER: a reply is sent...\n");
+	printf ("\nTCP SERVER: a reply is sent...\n");
 
 	close (ns);
 

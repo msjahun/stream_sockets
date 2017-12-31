@@ -1,0 +1,53 @@
+line 1#WebScarab Properties
+line 2#Sat Dec 23 11:09:47 EST 2017
+line 3Spider.excludePaths=
+line 4WebScarab.whitelistRegex=
+line 5Spider.recursive=false
+line 6Spider.synchroniseCookies=true
+line 7BeanShell.enabled=false
+line 8WebScarab.dropRegex=
+line 9Spider.domains=.*localhost.*
+line 10WebScarab.size.y=741
+line 11WebScarab.position.y=27
+line 12WebScarab.size.x=1366
+line 13WebScarab.position.x=0
+line 14#WebScarab Properties
+line 15#Sat Dec 23 11:09:47 EST 2017
+line 16Spider.excludePaths=
+line 17WebScarab.whitelistRegex=
+line 18Spider.recursive=false
+line 19Spider.synchroniseCookies=true
+line 20BeanShell.enabled=false
+line 21WebScarab.dropRegex=
+line 22Spider.domains=.*localhost.*
+line 23WebScarab.size.y=741
+line 24WebScarab.position.y=27
+line 25WebScarab.size.x=1366
+line 26WebScarab.position.x=0
+line 27#WebScarab Properties
+line 28#Sat Dec 23 11:09:47 EST 2017
+line 29Spider.excludePaths=
+line 30WebScarab.whitelistRegex=
+line 31Spider.recursive=false
+line 32Spider.synchroniseCookies=true
+line 33BeanShell.enabled=false
+line 34WebScarab.dropRegex=
+line 35Spider.domains=.*localhost.*
+line 36WebScarab.size.y=741
+line 37WebScarab.position.y=27
+line 38WebScarab.size.x=1366
+line 39WebScarab.position.x=0
+line 40#WebScarab Properties
+line 41#Sat Dec 23 11:09:47 EST 2017
+line 42Spider.excludePaths=
+line 43WebScarab.whitelistRegex=
+line 44Spider.recursive=false
+line 45Spider.synchroniseCookies=true
+line 46BeanShell.enabled=false
+line 47WebScarab.dropRegex=
+line 48Spider.domains=.*localhost.*
+line 49WebScarab.size.y=741
+line 50WebScarab.position.y=27
+line 51WebScarab.size.x=1366
+line 52WebScarab.position.x=0
+line 53This is the end of this file.msjahun out
