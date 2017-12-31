@@ -16,7 +16,7 @@
 #define PORT  7000 /* Port of this server */
 #define SIZE sizeof(struct sockaddr_in)
 void case_inverter(char temp_buff[],int n);
-
+void clearbuff(char buff[]);
 int main(void){
 	char buf[1024];
 	int n, s, ns, len;
@@ -27,7 +27,8 @@ int main(void){
 	int fdold;
 	int count;
 
-	printf("TCP SERVER: starting ...\n");
+
+	printf("\nTCP SERVER: starting ...\n");
 
 /** Create the Internet socket, of SOCK_STREAMtype.*/
 
@@ -75,13 +76,13 @@ int main(void){
 /** Now read from the new socket ns*/
 	
 
-	n = recv(ns, buf, 8, 0);
+	n = recv(ns, buf, sizeof(buf), 0);
 		
 		if (n < 0) {
 			perror("recv problem");
 			 exit(1);
 		}
-
+printf("\nThis is the file name received %s \n\n",buf);
 	write(1, buf, n);
 
 	
@@ -91,22 +92,29 @@ int main(void){
 fdold = open(buf, O_RDONLY);
 	if(fdold == -1)
 	{
-		printf("cannot open file %s\n",buf);
-		send (ns, "Error: Server could not open file, transfer failed\n",51,0);
+		printf("Server could find file %s\n",buf);
+		send (ns, "error",5,0);
 
-		exit(1);
+		
 	}
-
-	//inverting text received from client
-	while(( count = read(fdold, buf, sizeof(buf))) > 0){
-		send (ns, buf,count,0);
+	else{
+	send(ns,"success",7,0);
+	sleep(3);
+	//copying file and sending it to
+	printf("\nFile sending in progress.");
+	while(( count = read(fdold, buf, sizeof(buf)-1 )) > 0){
+		send (ns, buf,count+1,0);
+		//printf("%s",buf);
+		printf(".");
 
 		//write(fdnew, buffer, count);
+		clearbuff(buf);
 	}
 	
-	send (ns, "",0,0);
+	
 
-	printf ("TCP SERVER: file transfer is complete...\n");
+	printf ("\nTCP SERVER: file transfer is complete...\n");
+	}
 
 	close (ns);
 
@@ -124,3 +132,15 @@ void case_inverter(char temp_buff[],int n){
 	}
 }
 
+
+
+void clearbuff(char buff[]){
+int i=0;
+char *b;
+b=buff;
+for(;i<1024;i++){
+*b='\0';
+b++;
+
+}
+}
